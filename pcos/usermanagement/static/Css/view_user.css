@@ -1,0 +1,25 @@
+.table, th, td {
+    border:1px solid black;
+    width: 60px;
+    height: 70px;
+  }
+
+  .table_style{
+    margin-left: 0%;
+    margin-top: 0%;
+    width: 102%;
+
+  }
+  tr:hover 
+  {
+    background-color: #00c6a9;
+}
+
+.user_details{
+    background-color: #00c6a9;
+    color: white;
+    padding: 1%;
+    margin-top: -11px;
+    width: 100%;
+    text-align: center;
+}

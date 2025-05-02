@@ -1,0 +1,15 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PCOS Diagnosis</title>
+</head>
+<body>
+    <h2>Enter Patient Details for PCOS Prediction</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Diagnose</button>
+    </form>
+</body>
+</html>

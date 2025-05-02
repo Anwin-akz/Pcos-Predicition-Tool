@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PCOS Prediction Result</title>
+</head>
+<body>
+    <h2>Prediction Result</h2>
+    <img src="{{ image_url }}" alt="Uploaded Image" width="300">
+    <p>Result: <strong>{{ result }}</strong></p>
+    <a href="{% url 'predict_pcos' %}">Upload Another Image</a>
+</body>
+</html>

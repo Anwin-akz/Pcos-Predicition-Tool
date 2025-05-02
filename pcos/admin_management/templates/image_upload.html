@@ -1,0 +1,35 @@
+{% load static %}
+{% include 'header1.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Upload for PCOS Detection</title>
+    <link href="{% static 'css/image_upload.css' %}" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Upload Ultrasound Image</h1>
+        <form id="uploadForm" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="image">Select Ultrasound Image:</label>
+                <input type="file" id="image" name="image" accept="image/*" required>
+            </div>
+            <button type="submit">Upload and Analyze</button>
+        </form>
+    </div>
+
+    <!-- Pop-up for displaying the result -->
+   <!-- Pop-up for displaying the result -->
+<div class="popup-container" id="popup" style="display: none;">
+    <div class="popup-content">
+        <h2>PCOS Prediction Result</h2>
+        <p id="result-text"></p>
+        <button class="close-btn" onclick="closePopup()">Close</button>
+    </div>
+</div>
+    <script src="{% static 'js/image.js' %}"></script>
+</body>
+</html>

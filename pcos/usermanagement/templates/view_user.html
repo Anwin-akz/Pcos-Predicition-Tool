@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>view user Table</title>
+    <link href="{% static 'css/view_user.css' %}" rel="stylesheet">
+</head>
+<body>
+    <div class="user_details">
+        <h1>User Details</h1>
+    </div>
+    <table class="table_style">
+        <thead>
+            <tr>
+                <th>Sl.No.</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Date Joined</th>
+            </tr>
+            <!-- for taking table data and that to be showned up in the view section code -->
+            {% for user in users %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ user.username }} {{ user.last_name }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.contact }}</td>
+                <td>{{ user.date_joined }}</td>
+            </tr>
+            {% endfor %}
+
+        </thead>
+        <tbody>
+        
+        </tbody>
+    </table>
+    
+</body>
+</html>

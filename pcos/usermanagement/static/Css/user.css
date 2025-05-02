@@ -1,0 +1,62 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header Styles */
+/* header {
+    background-color: mediumseagreen;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+} */
+
+/* Features Section Styles */
+.features {
+    max-width: 900px;
+    margin: 50px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.features h2 {
+    text-align: center;
+    color: #00c6a9;
+    margin-bottom: 20px;
+}
+
+.feature-item {
+    margin: 15px 0;
+    padding: 15px;
+    border-left: 4px solid #00c6a9;
+    background: #f1f1f1;
+    border-radius: 5px;
+}
+
+.feature-item h3 {
+    margin: 0 0 10px;
+    color: #00c6a9;
+}
+
+.feature-item p {
+    margin: 0;
+    color: #555;
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    background-color: #00c6a9;
+    color: #fff;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}

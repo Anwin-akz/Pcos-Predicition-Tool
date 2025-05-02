@@ -1,0 +1,39 @@
+{% load static %}
+{% include 'header.html' %}
+    <!-- Image slideshow -->
+    <div class="slideshow-container">
+        <div class="mySlides fade">
+            <div class="numbertext">1 / 3</div>
+            <img src="{% static 'images/imges1.jpg' %}" style="width:100%">
+            <div class="text">Pcos Prediction</div>
+        </div>
+        
+        <div class="mySlides fade">
+            <div class="numbertext">2 / 3</div>
+            <img src="{% static 'images/img2.jpg' %}" style="width:100%">
+            <div class="text">Caption Two</div>
+        </div>
+        
+        <div class="mySlides fade">
+            <div class="numbertext">3 / 3</div>
+            <img src="{% static 'images/img3.jpg' %}" style="width:100%">
+            <div class="text">Caption Three</div>
+        </div>
+        
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a>
+    </div>
+
+    <br>
+
+    <!-- Dots for navigation -->
+    <div class="text_align">
+        <span class="dot" onclick="currentSlide(1)"></span> 
+        <span class="dot" onclick="currentSlide(2)"></span> 
+        <span class="dot" onclick="currentSlide(3)"></span> 
+    </div>
+
+    <!-- Load slide.js at the end of the body to ensure DOM is ready -->
+    <script src="{% static 'js/slide.js' %}"></script>
+</body>
+</html>

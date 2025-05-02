@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Table</title>
+    <link href="{% static 'css/view_feedback.css' %}" rel="stylesheet">
+</head>
+<body>
+    <div class="feedback_details">
+        <h1>Submitted Feedback</h1>
+    </div>
+    <table class="table_style">
+        <thead>
+            <tr>
+                <th>sl.No </th>
+                <th>Experience</th>
+                <th>Comments</th>
+                <th>Date Submitted</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for feedback in feedbacks %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ feedback.experience }}</td>
+                <td>{{ feedback.comments }}</td>
+                <td>{{ feedback.Date_submitted }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

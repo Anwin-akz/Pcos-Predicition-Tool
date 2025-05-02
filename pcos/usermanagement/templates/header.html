@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pcos</title>
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+    <link href="{% static 'css/home.css' %}" rel="stylesheet">
+    <link href="{% static 'css/slide.css' %}" rel="stylesheet">
+</head>
+<body class="topheading">
+    <div class="heading1">
+        <div class="login_section">
+
+            <ul>
+                <li>
+                    <h3 class="color2">PCOS PREDICTION</h3>
+                </li>
+                <!-- checking condition for anonymous user -->
+                {% if request.session.ut == None %}
+                <li class="li-item"><a href="/register">Sign up</a></li>
+
+                <li class="li-item"><a href="/login">Login</a></li> 
+
+                {% else %}
+
+                <li class="li-item ">
+                    Hi  {{ request.user.username }}
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+       
+    
+    </div>
+
+    <div class="sub_heading">
+        <ul>
+    <!-- checking condition for admin ,user,none  -->
+            {% if request.session.ut == "admin" %}
+            <li><a class="active" href="/">Home</a></li>
+            <li><a class="active" href="/view_user">View   Users</a></li>
+            <li><a class="active" href="/Resources">Resources</a></li>
+            <li><a class="active" href="/view_feedback">View feedback</a></li>
+            <li><a class="active" href="/logout"> Logout</a></li>
+
+            {% elif request.session.ut == "user" %}
+            <li><a class="active" href="/Resources">Resources</a></li>
+            <li><a class="active" href="/chat">chatbot</a></li>
+            <li><a class="active" href="/prediction">Prediction</a></li>
+            <li><a class="active" href="/image_upload">image uploads</a></li>
+            <li><a class="active" href="/feed_back">Feedback form </a></li>
+            <li><a class="active" href="/logout">Logout</a></li>
+            {% else %}
+            
+        <div class="nest_subheading">
+            <li><a class="active" href="/">Home</a></li>
+            <li><a class="active" href="/user">Features</a></li>
+            <li><a class="active" href="/about">About Us</a></li>
+            {% endif %}
+        </div>
+        </ul>
+    </div>

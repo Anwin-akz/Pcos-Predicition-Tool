@@ -1,0 +1,84 @@
+{% load static %}
+{% include 'header1.html' %}
+
+<body>
+    <div class="chatbot-container">
+        <div id="chatbot-toggle">Chat with Us</div>
+        <div id="chatbot" style="display: none;">
+            <div class="chat-header">
+                <h3>PCOS Help Assistant</h3>
+                <button id="close-btn">X</button>
+            </div>
+            <div id="chat-messages"></div>
+            {% csrf_token %} 
+            <div class="chat-input">
+                <input type="text" id="user-input" placeholder="Type your question here...">
+                <button id="send-btn">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Ensure jQuery is loaded -->
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            function toggleChatbot() {
+                $("#chatbot").toggle(); // Show/hide chatbot
+            }
+
+            $("#chatbot-toggle").on("click", toggleChatbot);
+            $("#close-btn").on("click", toggleChatbot);
+
+            $("#send-btn").on("click", sendMessage);
+            $("#user-input").keypress(function(event) {
+                if (event.which === 13) sendMessage();
+            });
+
+            function sendMessage() {
+                var user_input = $("#user-input").val().trim();
+                var csrftoken = getCSRFToken();
+
+                if (user_input === "") return;
+                appendUserMessage(user_input);
+                $("#user-input").val("");
+
+                $.ajax({
+                    type: "POST",
+                    url: "{% url 'chats' %}",
+                    data: { user_input: user_input, csrfmiddlewaretoken: csrftoken },
+                    success: function(response) {
+                        appendChatbotMessage(response.response_text);
+                    },
+                    error: function(xhr, status, error) {
+                        console.error("AJAX Error:", error);
+                        appendChatbotMessage("Oops! Something went wrong. Try again.");
+                    }
+                });
+            }
+
+            function appendUserMessage(message) {
+                var messageElement = $("<div class='message user-message'><div class='message-content'>" + message + "</div></div>");
+                $("#chat-messages").append(messageElement);
+                scrollChatToBottom();
+            }
+
+            function appendChatbotMessage(message) {
+                var messageElement = $("<div class='message chatbot-message'><div class='message-content'>" + message + "</div></div>");
+                $("#chat-messages").append(messageElement);
+                scrollChatToBottom();
+            }
+
+            function scrollChatToBottom() {
+                $("#chat-messages").scrollTop($("#chat-messages")[0].scrollHeight);
+            }
+
+            function getCSRFToken() {
+                return $("input[name='csrfmiddlewaretoken']").val();
+            }
+        });
+    </script>
+
+    <link href="{% static 'css/chat.css' %}" rel="stylesheet">
+</body>
+
+{% include 'footer.html' %}

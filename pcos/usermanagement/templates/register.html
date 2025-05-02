@@ -1,0 +1,35 @@
+{% load static %}
+ {% include 'header1.html' %}
+
+ 
+    <div class="container2">
+    <form method="post">
+        <div class="form_tag1">
+            {% csrf_token %}
+            <h1>Sign Up</h1>
+            <!-- <label for="First name">First name</label><br>
+            <input type="text" id="fname" name="firstname"><br>
+            <label for="lastname">Last name</label><br>
+            <input type="text" id="lname" name="lname"><br>
+            <label for="phno">Phone number</label><br>
+            <input type="text" id="phno" name="phno"><br>
+            <label for="email">Email</label><br>
+            <input type="email" id="email" name="email"><br><br>
+            <label for="pword">Password</label><br>
+            <input type="password" id="pword" name="pword"><br><br> -->
+            {{ form.as_p }}
+            <button type="submit" class="button">Sign Up</button>
+            <p class="align"> Already have an account ?<a href="/login">Login</a></p>
+            
+        </form>
+        </div>
+
+      
+
+    <link href="{% static 'css/register.css' %}" rel="stylesheet">
+
+    </div>
+
+
+
+{% include 'footer.html' %}

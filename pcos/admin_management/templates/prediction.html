@@ -1,0 +1,44 @@
+{% load static %}
+{% include 'header1.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCOS Prediction</title>
+    <link href="{% static 'css/prediction.css' %}" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Enter Patient Details for PCOS Prediction</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if result %}
+        <div class="result">
+            <h2>Prediction Result</h2>
+            <p>{{ result }}</p>
+        </div>
+        {% endif %}
+
+        {% if recommendations %}
+        <div class="recommendations">
+            <h2>Recommendations</h2>
+            <pre>{{ recommendations }}</pre>
+        </div>
+        {% endif %}
+
+        {% if diagnosis_summary %}
+        <div class="recommendations">
+            <h2>Summary</h2>
+            <p>{{ diagnosis_summary }}</p>
+        </div>
+        {% endif %}
+        
+
+    </div>
+</body>
+</html>

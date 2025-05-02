@@ -1,0 +1,62 @@
+{% load static %}
+{% include "header1.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Form</title>
+    <link href="{% static 'css/feedback.css' %}" rel="stylesheet">
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+</head>
+<body>
+    {% if messages %}
+
+
+    <div class="alert alert-danger">
+        <strong> {% for message in messages %}
+            {% if 'feedback' in message.tags %}
+
+            {{message}}
+            {% endif %}
+        {% endfor %}</strong>        
+
+      </div>
+
+
+{% endif %}
+
+
+
+
+
+    <div class="container">
+        <div class="nest_container">
+        <h2>User Feedback</h2>
+        <form method="post">
+        {% csrf_token %}
+            <label for="experience">How was your experience?</label>
+            <select id="experience" name="experience">
+                <option value="Excellent">Excellent</option>
+                <option value="Good">Good</option>
+                <option value="Average">Average</option>
+                <option value="Poor">Poor</option>
+            </select>
+
+            <label for="comments">Comments or Suggestions:</label>
+            <textarea id="comments" name="comments" placeholder="Enter your feedback" rows="4"></textarea>
+            
+            <button type="submit">Submit Feedback</button>
+        </form>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+

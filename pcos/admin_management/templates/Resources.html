@@ -1,0 +1,44 @@
+{% load static %}
+{% include 'header1.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educational Resources</title>
+    <link href="{% static 'css/resources.css' %}" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Educational Resources on PCOS</h1>
+        <section class="resource">
+            <h2>What is PCOS?</h2>
+            <p>PCOS (Polycystic Ovary Syndrome) is a common hormonal disorder among women of reproductive age. Symptoms include irregular periods, excess androgen, and polycystic ovaries.</p>
+        </section>
+
+        <section class="resource">
+            <h2>Common Symptoms</h2>
+                <p>Irregular or prolonged menstrual cycles</p>
+                <p>Excess facial or body hair (hirsutism)</p>
+                <p>Weight gain</p>
+                <p>Acne or oily skin</p>
+                <p>Thinning hair or hair loss on the scalp</p>
+        </section>
+
+        <section class="resource">
+            <h2>Management and Treatment</h2>
+            <p>PCOS can be managed through lifestyle changes, medication, and other treatments. Consult a healthcare provider for personalized advice.</p>
+        </section>
+
+        <section class="resource">
+            <h2>Useful Links</h2>
+        
+            <!-- <ul> -->
+                <li><a href="https://www.who.int/health-topics/pcos" target="_blank">World Health Organization: PCOS</a></li>
+                <li><a href="https://www.womenshealth.gov/a-z-topics/polycystic-ovary-syndrome" target="_blank">Women's Health: PCOS</a></li>
+                <li><a href="https://www.mayoclinic.org/diseases-conditions/pcos/symptoms-causes" target="_blank">Mayo Clinic: PCOS Overview</a></li>
+            <!-- </ul> -->
+        </section>
+    </div>
+</body>
+</html>

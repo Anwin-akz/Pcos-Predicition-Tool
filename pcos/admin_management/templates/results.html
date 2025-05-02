@@ -1,0 +1,23 @@
+{% load static %}
+{% include 'header1.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PCOS Prediction Result</title>
+    <link href="{% static 'css/result.css' %}" rel="stylesheet">
+</head>
+<body>
+    <div class="popup-container" id="popup">
+        <div class="popup-content">
+            <h2>PCOS Prediction Result</h2>
+            <pre id="result-text">{{ result }}</pre>
+            
+            <button class="close-btn" id="closePopup">Close</button>
+        </div>
+    </div>
+
+    <script src="{% static 'js/result.js' %}"></script>
+</body>
+</html>

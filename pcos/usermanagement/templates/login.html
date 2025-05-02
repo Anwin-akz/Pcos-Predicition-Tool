@@ -1,0 +1,42 @@
+{% load static %}
+{% include 'header1.html' %}
+
+
+<body class="section_heading">
+    <!-- {% if messages %}
+
+
+    <div class="alert alert-danger">
+        <strong> {% for message in messages %}
+            {% if 'login' in message.tags %}
+
+            {{message}}
+            {% endif %}
+        {% endfor %}
+    </strong>        
+
+      </div>
+
+
+{% endif %} -->
+<div class="container1">
+    <form method="post">
+        <div class="form_tag">
+                <h1>login page</h1>
+        {% csrf_token %}
+       
+        {{ form.as_p }}
+        <button type="submit" class="button">Login</button> 
+        <p>Don't have an account ? <a href="/register">Sign Up</a></p>
+    </form>
+    <link  href="{% static 'css/login.css' %}" rel="stylesheet">
+    
+    </div>
+
+
+</div>
+</body>
+</html>
+
+
+{% include 'footer.html' %}
