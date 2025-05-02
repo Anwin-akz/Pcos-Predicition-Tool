@@ -47,7 +47,7 @@ This tool can assist:
 
 
 ## 🏥 Data set
-Data set where taken as secondary source fro kaggle 
+Data set where taken as secondary source from kaggle 
 
 ## 📁 How to Run
 
